@@ -13,9 +13,9 @@ vehicle2.model = "Dolphin";
 vehicle2.year = 2021;
 
 Vehicle vehicle3 = new Vehicle();
-vehicle3.brand = "BYD";
-vehicle3.model = "Atto 3";
-vehicle3.year = 2022;
+vehicle3.brand = "Hongqi";
+vehicle3.model = "CA72";
+vehicle3.year = 1958;
 
 vehicle1.displayInfo();
    System.out.println(vehicle1.calculateAge());

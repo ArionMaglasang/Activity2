@@ -1,31 +1,49 @@
-public class Main{
+public class Main {
 
-public static void main(String[] args){
+    public static void printDetails(Vehicle vehicle) {
+        vehicle.displayInfo();
+    }
 
-Vehicle vehicle1 = new Vehicle();
-vehicle1.brand = "BYD";
-vehicle1.model = "Seagull";
-vehicle1.year = 2023;
+    public static void main(String[] args) {
 
-Vehicle vehicle2 = new Vehicle();
-vehicle2.brand = "BYD";
-vehicle2.model = "Dolphin";
-vehicle2.year = 2021;
+        // Demo 1: A parent reference holds a child object
+        System.out.println("=== Demo 1: Parent Reference ===");
 
-Vehicle vehicle3 = new Vehicle();
-vehicle3.brand = "Hongqi";
-vehicle3.model = "CA72";
-vehicle3.year = 1958;
+        Vehicle vehicle = new Car("Toyota", "Fortuner", 2024, 4);
+        vehicle.displayInfo();
+        System.out.println();
 
-vehicle1.displayInfo();
-   System.out.println(vehicle1.calculateAge());
-   System.out.println(vehicle1.isVintage());
-vehicle2.displayInfo();
-   System.out.println(vehicle2.calculateAge());
-   System.out.println(vehicle2.isVintage());
-vehicle3.displayInfo();
-   System.out.println(vehicle3.calculateAge());
-   System.out.println(vehicle3.isVintage());
-   
-}
+        vehicle = new Motorcycle("Yamaha", "Mio i125", 2023, "Automatic");
+        vehicle.displayInfo();
+        System.out.println();
+
+        // Demo 2: One method accepts different Vehicle subclasses
+        System.out.println("=== Demo 2: Method Parameter ===");
+
+        Car car = new Car("Ford", "Mustang", 2025, 2);
+
+        Motorcycle motorcycle =
+            new Motorcycle("Kawasaki", "Ninja 400", 2024, "Manual");
+
+        printDetails(car);
+        System.out.println();
+
+        printDetails(motorcycle);
+        System.out.println();
+
+        // Demo 3: An array holds different Vehicle subclasses
+        System.out.println("=== Demo 3: Polymorphic Array ===");
+
+        Vehicle[] vehicles = {
+            new Car("Honda", "Civic", 2022, 4),
+            new Motorcycle("Suzuki", "Raider 150", 2021, "Manual"),
+            new Car("Mitsubishi", "Montero Sport", 2023, 4),
+            new Motorcycle("Honda", "Click 160", 2025, "Automatic")
+        };
+
+        for (Vehicle currentVehicle : vehicles) {
+            printDetails(currentVehicle);
+            System.out.println();
+        }
+    }
 }
